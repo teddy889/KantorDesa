@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tugas - Kantor Desa Kaliau</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Kantor Desa Kaliau</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Beranda</a></li>
+                <li><a href="visimisi.html">Visi & Misi</a></li>
+                <li><a href="profil.html">Profil</a></li>
+                <li><a href="tugas.html">Tugas</a></li>
+                <li><a href="kontak.html">Kontak</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="content">
+        <h2>Tugas Kantor Desa</h2>
+        <p>Pemerintah Desa Kaliau memiliki beberapa tugas utama, antara lain:</p>
+        <ul class="task-list" align="left">
+            <li>📜 Menyelenggarakan pemerintahan desa sesuai dengan peraturan perundang-undangan yang berlaku.</li>
+            <li>🏗️ Melaksanakan pembangunan yang berorientasi pada peningkatan kesejahteraan masyarakat.</li>
+            <li>🤝 Memberdayakan masyarakat melalui berbagai program dan kegiatan.</li>
+            <li>🛠️ Menyediakan pelayanan publik yang prima bagi seluruh warga desa.</li>
+            <li>💰 Mengelola keuangan dan aset desa secara transparan dan akuntabel.</li>
+        </ul>
+    </section>
+    <audio id="audio" src="1.mp3"></audio>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        var audio = document.getElementById("audio");
+
+        function playAudio() {
+            if (audio.paused) {
+                audio.play().catch(error => console.log("Audio autoplay ditolak:", error));
+            }
+        }
+
+        // Memutar audio saat halaman di-scroll
+        window.addEventListener("scroll", playAudio);
+
+        // Memutar audio saat pengguna pertama kali menyentuh layar
+        document.addEventListener("touchstart", playAudio);
+    });
+</script>
+</body>
+</html>

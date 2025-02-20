@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beranda - Kantor Desa Kaliau</title>
+        <link rel="stylesheet" href="style.css">
+</head>
+</head>
+<body>
+
+    <header>
+        <h1>Kantor Desa Kaliau</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Beranda</a></li>
+                <li><a href="visimisi.html">Visi & Misi</a></li>
+                <li><a href="profil.html">Profil</a></li>
+                <li><a href="tugas.html">Tugas</a></li>
+                <li><a href="kontak.html">Kontak</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="content">
+        <h2>Selamat Datang di Kantor Desa Kaliau</h2>
+        <p align="left">Desa Kaliau adalah salah satu desa di Kecamatan Sajingan Besar, Kabupaten Sambas, Kalimantan Barat. Sebagai pusat administrasi desa, Kantor Desa Kaliau berperan penting dalam melayani masyarakat setempat.</p>
+    </section>
+<audio id="audio" src="1.mp3"></audio>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        var audio = document.getElementById("audio");
+
+        function playAudio() {
+            if (audio.paused) {
+                audio.play().catch(error => console.log("Audio autoplay ditolak:", error));
+            }
+        }
+
+        // Memutar audio saat halaman di-scroll
+        window.addEventListener("scroll", playAudio);
+
+        // Memutar audio saat pengguna pertama kali menyentuh layar
+        document.addEventListener("touchstart", playAudio);
+    });
+</script>
+</body>
+</html>

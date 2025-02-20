@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kontak - Kantor Desa Kaliau</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Kantor Desa Kaliau</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Beranda</a></li>
+                <li><a href="visimisi.html">Visi & Misi</a></li>
+                <li><a href="profil.html">Profil</a></li>
+                <li><a href="tugas.html">Tugas</a></li>
+                <li><a href="kontak.html">Kontak</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="content">
+        <h2>Kontak Pengajuan</h2>
+        <p>Untuk informasi lebih lanjut atau pelayanan administrasi, silakan hubungi kami:</p>
+        <ul class="contact-info" align="left">
+            <li>📍 <strong>Alamat:</strong> Jalan Desa Kaliau, Kecamatan Sajingan Besar, Kabupaten Sambas, Kalimantan Barat, Kode Pos 79467</li>
+            <li>📧 <strong>Email:</strong> <a href="mailto:sajinganbesar@sambas.go.id">sajinganbesar@sambas.go.id</a></li>
+            <li>📞 <strong>Telepon:</strong> 000000000</li>
+            <li>⏰ <strong>Jam Operasional:</strong> Senin - Jumat (08:00 - 16:00 WIB)</li>
+        </ul>
+        <p>Kami siap melayani Anda dengan sepenuh hati!</p>
+    </section>
+    <audio id="audio" src="1.mp3"></audio>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        var audio = document.getElementById("audio");
+
+        function playAudio() {
+            if (audio.paused) {
+                audio.play().catch(error => console.log("Audio autoplay ditolak:", error));
+            }
+        }
+
+        // Memutar audio saat halaman di-scroll
+        window.addEventListener("scroll", playAudio);
+
+        // Memutar audio saat pengguna pertama kali menyentuh layar
+        document.addEventListener("touchstart", playAudio);
+    });
+</script>
+</body>
+</html>

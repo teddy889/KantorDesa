@@ -3,47 +3,300 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Beranda - Kantor Desa Kaliau</title>
-        <link rel="stylesheet" href="style.css">
-</head>
+    <title>Kantor Desa Sejahtera</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <style>
+        /* Reset dan Gaya Dasar */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: url('kantordesa.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: white;
+        }
+
+        /* Header dan Navigasi */
+        header {
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 15px 0;
+            text-align: center;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.4);
+            z-index: 1000;
+            transition: background 0.3s;
+        }
+        
+
+        header.scrolled {
+            background: rgba(0, 0, 0, 0.4);
+        }
+
+        header h1 {
+            color: #FFD700;
+            font-size: 24px;
+            font-weight: 600;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 10px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            padding: 10px 15px;
+            transition: 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #FFD700;
+            text-shadow: 0px 0px 10px #FFD700;
+        }
+
+        /* Section Styling */
+        section {
+            max-width: 900px;
+            margin: 120px auto 50px;
+            padding: 40px;
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 10px;
+            text-align: center;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        section.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        h2 {
+            color: #FFD700;
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-size: 16px;
+            margin-bottom: 15px;
+        }
+
+        /* Form Styling */
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        form input, form textarea {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            outline: none;
+            transition: 0.3s;
+        }
+
+        form input:focus, form textarea:focus {
+            background: rgba(255, 255, 255, 0.2);
+            box-shadow: 0px 4px 12px rgba(255, 165, 0, 0.5);
+        }
+
+        button {
+            background: linear-gradient(90deg, #FFD700, #FFA500);
+            color: black;
+            border: none;
+            padding: 12px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background: linear-gradient(90deg, #FFA500, #FFD700);
+            box-shadow: 0px 0px 15px rgba(255, 165, 0, 0.7);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.2);
+        }
+
+        .social-icons {
+            margin-top: 10px;
+        }
+
+        .social-icons a {
+            color: white;
+            font-size: 18px;
+            margin: 0 10px;
+            transition: 0.3s;
+        }
+
+        .social-icons a:hover {
+            color: #FFD700;
+        }
+
+        /* Animasi Scroll */
+        @media (max-width: 768px) {
+            section {
+                width: 90%;
+                padding: 20px;
+            }
+
+            nav ul {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+    </style>
 </head>
 <body>
+<audio id="background-audio" loop>
+    <source src="1.mp3" type="audio/mp3">
+    Browser Anda tidak mendukung elemen audio.
+</audio>
 
-    <header>
+<script>
+    let audioPlayed = false;
+
+    document.addEventListener("click", function() {
+        let audio = document.getElementById("background-audio");
+
+        if (!audioPlayed) {
+            audio.play().catch(error => console.log("Autoplay tidak diperbolehkan:", error));
+            audioPlayed = true;
+        }
+    });
+</script>
+    <header id="navbar">
         <h1>Kantor Desa Kaliau</h1>
         <nav>
             <ul>
-                <li><a href="index.html">Beranda</a></li>
-                <li><a href="visimisi.html">Visi & Misi</a></li>
-                <li><a href="profil.html">Profil</a></li>
-                <li><a href="tugas.html">Tugas</a></li>
-                <li><a href="kontak.html">Kontak</a></li>
+                <li><a href="#beranda">Beranda</a></li>
+                <li><a href="#visi-misi">Visi & Misi</a></li>
+                <li><a href="#profil">Profil</a></li>
+                <li><a href="#tugas">Tugas</a></li>
+                <li><a href="#kontak">Kontak</a></li>
             </ul>
         </nav>
     </header>
 
-    <section class="content">
+    <section id="beranda">
         <h2>Selamat Datang di Kantor Desa Kaliau</h2>
-        <p align="left">Desa Kaliau adalah salah satu desa di Kecamatan Sajingan Besar, Kabupaten Sambas, Kalimantan Barat. Sebagai pusat administrasi desa, Kantor Desa Kaliau berperan penting dalam melayani masyarakat setempat.</p>
+        <p align="left">Desa Kaliau adalah salah satu desa di Kecamatan Sajingan Besar, Kabupaten Sambas, Kalimantan Barat. Sebagai pusat administrasi desa, Kantor Desa Kaliau berperan penting dalam melayani masyarakat setempat.
     </section>
-<audio id="audio" src="1.mp3"></audio>
 
-<script>
-    document.addEventListener("DOMContentLoaded", function () {
-        var audio = document.getElementById("audio");
+    <section id="visi-misi">
+        <h2>Visi & Misi</h2>
+        <p align="left"><strong>Visi:</strong><i>"Mewujudkan Desa Kaliau yang mandiri, sejahtera, dan berdaya saing melalui pengelolaan sumber daya lokal secara optimal dan berkelanjutan."</i></p>
+        <p align="left"><strong>Misi:</strong><br />1. Meningkatkan kualitas pendidikan dan kesehatan masyarakat.
 
-        function playAudio() {
-            if (audio.paused) {
-                audio.play().catch(error => console.log("Audio autoplay ditolak:", error));
-            }
-        }
 
-        // Memutar audio saat halaman di-scroll
-        window.addEventListener("scroll", playAudio);
+<br />2. Mengembangkan potensi ekonomi lokal berbasis pertanian dan pariwisata.
 
-        // Memutar audio saat pengguna pertama kali menyentuh layar
-        document.addEventListener("touchstart", playAudio);
-    });
-</script>
+
+<br />3. Meningkatkan infrastruktur desa untuk mendukung aktivitas ekonomi dan sosial.
+
+
+<br />4. Mendorong partisipasi aktif masyarakat dalam pembangunan desa.
+
+
+<br />5. Mewujudkan tata kelola pemerintahan desa yang transparan dan akuntabel.</p>
+    </section>
+
+    <section id="profil">
+        <h2>Profil Desa</h2>
+        <p align="left">Desa Kaliau memiliki luas wilayah sekitar 197,74 km² dan jumlah penduduk sebanyak 3.102 jiwa. 
+        <br />Sebagian besar masyarakatnya bermata pencaharian di sektor pertanian, dengan komoditas utama seperti padi, karet, dan kelapa sawit. 
+        <br />Selain itu, Desa Kaliau memiliki potensi pariwisata alam yang belum banyak tereksplorasi.</p>
+
+    </section>
+
+    <section id="tugas">
+        <h2>Tugas Kantor Desa</h2>
+        <p align="left">Pemerintah Desa Kaliau memiliki beberapa tugas utama, antara lain:
+
+<br />Menyelenggarakan pemerintahan desa sesuai dengan peraturan perundang-undangan yang berlaku.
+<br />
+<br />Melaksanakan pembangunan yang berorientasi pada peningkatan kesejahteraan masyarakat.
+<br />
+<br />Memberdayakan masyarakat melalui berbagai program dan kegiatan.
+<br />
+<br />Menyediakan pelayanan publik yang prima bagi seluruh warga desa.
+<br />
+<br />Mengelola keuangan dan aset desa secara transparan dan akuntabel.</p>
+    </section>
+
+    <section id="kontak">
+        <h2>Kontak Pengajuan</h2>
+        <p align="left">Untuk informasi lebih lanjut atau pelayanan administrasi, silakan hubungi kami:
+
+<br />📍 Jalan Desa Kaliau, Kecamatan Sajingan Besar, Kabupaten Sambas, Kalimantan Barat, kode pos 79467. 
+
+
+<br />📧 Email: sajinganbesar@sambas.go.id
+<br />📞 Telepon: 000000000
+<br />⏰ Jam Operasional: Senin - Jumat (08:00 - 16:00 WIB)
+
+Kami siap melayani Anda dengan sepenuh hati!</p>
+
+    </section>
+
+    <section id="pengajuan">
+        <h2>Form Pengajuan</h2>
+        <form>
+            <input type="text" placeholder="Nama Lengkap" required>
+            <input type="email" placeholder="Email" required>
+            <textarea placeholder="Isi Pengajuan" required></textarea>
+            <button type="submit">Kirim</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Kantor Desa Kaliau</p>
+        <div class="social-icons">
+            <a href="#">🌐</a>
+            <a href="#">📘</a>
+            <a href="#">🐦</a>
+        </div>
+    </footer>
+
+    <script>
+        window.addEventListener("scroll", () => {
+            document.getElementById("navbar").classList.toggle("scrolled", window.scrollY > 50);
+            document.querySelectorAll("section").forEach(sec => {
+                if (sec.getBoundingClientRect().top < window.innerHeight - 100) {
+                    sec.classList.add("show");
+                }
+            });
+        });
+    </script>
+
 </body>
 </html>
